@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<phpunit
+        colors="true"
+        bootstrap="./MPB/Bootstrap.php">
+    <testsuites>
+        <testsuite name="Testsuite">
+            <directory>.</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
