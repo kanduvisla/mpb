@@ -39,21 +39,6 @@ class Bootstrap
             $this->importTables(dirname(__FILE__) . '/sql/setup.sql');
         }
 
-        // Define constants:
-        define('ATTRIBUTE_CODE_ORGANISATION_ID',
-            Mage::getModel('eav/entity_attribute')->loadByCode(1, 'happy_discount_organisation_id')->getId());
-
-        // Insert manually:
-        $sql = sprintf('INSERT INTO `test_customer_entity_int` 
-            (`entity_type_id`, `attribute_id`, `entity_id`, `value`) VALUES
-            (1, %1$d, 1, 0),  -- zero organisation (not set)
-            (1, %1$d, 2, 1),  -- Organisation X
-            (1, %1$d, 4, 2)  -- Organisation Y
-               -- not set
-            ;
-            ', ATTRIBUTE_CODE_ORGANISATION_ID);
-        $this->pdo->query($sql);
-        
         // Create test products:
         $this->createTestProducts();
         
@@ -86,7 +71,6 @@ class Bootstrap
                         $info = $this->pdo->errorInfo();
                         var_dump($info);
                     }
-
                     $templine = ''; // Reset temp variable to empty
                 }
             }
@@ -98,7 +82,12 @@ class Bootstrap
      */
     private function setDefines()
     {
-        
+        if(!defined('MAGENTO_ROOT'))
+        {
+            // Set the absolute path to the Magento installation:
+            $path = explode('app/code', dirname(__FILE__));
+            define('MAGENTO_ROOT', $path[0]);
+        }
     }
     
     /**

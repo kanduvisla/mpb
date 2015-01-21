@@ -25,3 +25,27 @@ The same trick can be applied to testtables. As you might know, Magento gets the
 configuration (by using `Mage::getSingleton('core/resource')->getTableName('module/entity_name')`). Since this
 is also in the configuration, you can change these values on the fly, effectively make Magento read from other
 tables.
+
+## How can I use it?
+
+As mentioned before, the only thing MPB does, is facilitate.
+
+### Change configuration settings
+
+resources/config.xml
+
+### Set alternate tables
+
+resources/tables.xml
+
+### Provide test customers
+
+resources/customers.xml
+
+### Provide test products
+
+resources/products.xml
+
+### Provide test orders
+
+resources/orders.xml

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tables>
+    <!-- 
+        Table syntax: this will 'intelligent' replace all configurations that involve 
+        this table to a table with the test_-prefix: 
+    -->
+    <table>sales_flat_order</table>
+    
+    <!--
+        EAV syntax: this is usefull for modules that use the EAV data model. Changing this will
+        also apply to all suffixed tables (_int, _varchar, _text, etc...):
+    -->
+    <eav>catalog_product</eav>
+    
+    <!--
+        Entity: this will use the same syntax as the getTableName()-method would:
+    -->
+    <entity>cms/page</entity>
+</tables>
